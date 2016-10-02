@@ -27,19 +27,19 @@ def walk(path, indent, dash, count):
         if file == files[len(files) - 1]:
             if os.path.isdir(newfile):
                 count['dir'] += 1
-                print(indent + '`-- ' + file)
+                print(indent + '└── ' + file)
                 walk(newfile, indent + '    ', dash, count)
             else:
                 count['file'] += 1
-                print(indent + '`-- ' + file)
+                print(indent + '└── ' + file)
         else:
             if os.path.isdir(newfile):
                 count['dir'] += 1
-                print(indent + '|-- ' + file)
-                walk(newfile, indent + '|   ', '|-- ', count)
+                print(indent + '├── ' + file)
+                walk(newfile, indent + '│   ', '├── ', count)
             else:
                 count['file'] += 1
-                print(indent + '|-- ' + file)
+                print(indent + '├── ' + file)
 
 
 if __name__ == '__main__':
